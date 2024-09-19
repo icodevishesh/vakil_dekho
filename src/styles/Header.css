@@ -1,0 +1,163 @@
+/* styles/Header.css */
+.main {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header {
+    margin: 0; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    height: 50px; 
+}
+
+.nav-logo > span { 
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 0;
+    font-family: 'Roboto';
+    white-space: nowrap;
+}
+
+.main-content {
+    margin-top: 70px; 
+}
+
+.header > .webNavWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 2rem;
+}
+
+.header > .nav-logo {
+    margin-right: 2rem;
+}
+
+.header > .webNavWrapper > .nav-links {
+    margin-left: auto;
+    display: flex;
+    transition: max-height 0.3s ease; 
+    white-space: nowrap;
+}
+
+.header > .webNavWrapper > .nav-links > a {
+    text-decoration: none;
+    color: black;
+    padding-inline: 16px;
+    font-family: Arial;
+    position: relative;
+    white-space: nowrap;
+}
+
+.header > .webNavWrapper > .nav-links > a::after {
+    content: '';
+    position: absolute;
+    left: 10%; /* Adjust this to control where the underline starts */
+    right: 10%; /* Adjust this to control where the underline ends */
+    bottom: -3px; /* Adjust this to move the underline closer to the text */
+    height: 3px;
+    background-color: #007aff; /* Color of the underline */
+    transform: scaleX(0); /* Initially hidden underline */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.header > .webNavWrapper > .nav-links > a:hover::after {
+    transform: scaleX(1); /* Underline becomes visible on hover */
+}
+
+
+.header > .webNavWrapper > .nav-btn > .login-btn {
+    background: #022b50;
+    border: 1px solid #022b50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.3s ease-out 100ms
+}
+.header > .webNavWrapper > .nav-btn > .login-btn:hover{
+    background: #0a599ff7;
+    border: 1px solid #0a599ff7;
+}
+
+.header > .webNavWrapper > .nav-hamburger-menu {
+    display: none; /* Hide by default */
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .header > .webNavWrapper > .nav-links > a {
+        font-size: 14px; /* Reduce font size for nav links */
+    }
+}
+@media (max-width: 950px) {
+
+    .header > .webNavWrapper > .nav-links > a {
+        font-size: 12px; /* Reduce font size for nav links */
+    }
+    .nav-logo > span { 
+        font-size: 25px;
+    }
+    .login-btn{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 860px) {
+    .header > .webNavWrapper > .nav-links {
+        display: none; /* Hide links by default */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        background-color: white;
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .header > .webNavWrapper > .nav-links.active {
+        display: flex;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        top: 56px;
+        text-align: end;
+    }
+    .header > .webNavWrapper > .nav-links.active > a {
+        margin-bottom: 1rem;
+    }
+
+    .header > .webNavWrapper > .nav-hamburger-menu {
+        display: block; /* Show hamburger menu */
+        width: auto;
+    }
+
+    .header > .webNavWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        column-gap: 2rem;
+    }
+    .header > .webNavWrapper > .nav-links:hover{
+        background-color: #f6f6f6;
+    }   
+    .nav-btn{
+        width: auto;
+    }
+    .header > .webNavWrapper > .nav-btn > .login-btn {
+        padding: 7px 14px;
+        width: 80px;
+    }
+}
